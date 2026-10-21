@@ -11,8 +11,22 @@ public class AddressBuilderApp {
         //! Creating a Scanner
         Scanner addressBuilder = new Scanner(System.in);
 
+        //*Asking for full name
+        System.out.println(questions("What is your full name: "));
 
+        //*Storing the full name
+        String fullName = addressBuilder.nextLine();
+
+        //?Calling the billing info
         billingQuestions(addressBuilder);
+
+        //?Calling the shipping info
+        shippingQuestion(addressBuilder);
+
+       //!Creating a String builder
+       StringBuilder billingInfo = new StringBuilder();
+
+        System.out.println(billingInfo.toString());
 
 
 
@@ -30,13 +44,8 @@ public class AddressBuilderApp {
         return customMessage;
     }
 
+    //!asking for the billing info
     public static String billingQuestions(Scanner addressBuilder){
-
-        //*Asking for full name
-        System.out.println(questions("What is your full name: "));
-
-        //*Storing the full name
-        String fullName = addressBuilder.nextLine();
 
         //* Asking for billing street
         System.out.println(questions("What is your billing street: "));
@@ -59,9 +68,53 @@ public class AddressBuilderApp {
         //*Asking billing Zip
         System.out.println(questions("What is your billing zip: "));
 
-        //*Storing Zip
+        //*Storing billing Zip
         String billingZip = addressBuilder.nextLine();
 
+        //!Creating a String builder
+        StringBuilder billingInfo = new StringBuilder();
+
+        //* Appending the messages for billing info
+        billingInfo.append("""
+                Billing Address:"
+                """);
+        billingInfo.append(billingStreet);
+        
+        System.out.println(billingInfo.toString());
+
+
+
+
      return addressBuilder.nextLine();
+    }
+
+    //!asking for shipping info
+    public static  String shippingQuestion(Scanner addressBuilder){
+
+        //* Asking for shipping street
+        System.out.println(questions("What is your shipping street: "));
+
+        //*Storing the shipping Street
+        String shippingStreet = addressBuilder.nextLine();
+
+        //*Asking for the shipping city
+        System.out.println(questions("What is your shipping city: "));
+
+        //*Storing the shipping city
+        String shippingCity = addressBuilder.nextLine();
+
+        //*Asking the shipping state
+        System.out.println(questions("What is your shipping state: "));
+
+        //*Storing the shipping state
+        String shippingState = addressBuilder.nextLine();
+
+        //*Asking shipping Zip
+        System.out.println(questions("What is your shipping zip: "));
+
+        //*Storing shipping Zip
+        String shippingZip = addressBuilder.nextLine();
+
+        return addressBuilder.nextLine();
     }
 }
