@@ -11,41 +11,14 @@ public class AddressBuilderApp {
         //! Creating a Scanner
         Scanner addressBuilder = new Scanner(System.in);
 
+        //?Intro
+        System.out.println("Please Provide The Following Information");
+
         //*Asking for full name
         System.out.println(questions("What is your full name: "));
 
         //*Storing the full name
         String fullName = addressBuilder.nextLine();
-
-        //?Calling the billing info
-        billingQuestions(addressBuilder);
-
-        //?Calling the shipping info
-        shippingQuestion(addressBuilder);
-
-       //!Creating a String builder
-       StringBuilder billingInfo = new StringBuilder();
-
-        System.out.println(billingInfo.toString());
-
-
-
-
-
-
-
-
-
-    }
-
-
-    //!creating methods asking the questions
-    public static String questions(String customMessage){
-        return customMessage;
-    }
-
-    //!asking for the billing info
-    public static String billingQuestions(Scanner addressBuilder){
 
         //* Asking for billing street
         System.out.println(questions("What is your billing street: "));
@@ -76,20 +49,19 @@ public class AddressBuilderApp {
 
         //* Appending the messages for billing info
         billingInfo.append("""
-                Billing Address:"
+                Billing Address:
                 """);
         billingInfo.append(billingStreet);
-        
-        System.out.println(billingInfo.toString());
+        billingInfo.append(" \n");
 
+        billingInfo.append(billingCity);
+        billingInfo.append(", ");
 
+        billingInfo.append(billingState);
+        billingInfo.append(" ");
 
+        billingInfo.append(billingZip);
 
-     return addressBuilder.nextLine();
-    }
-
-    //!asking for shipping info
-    public static  String shippingQuestion(Scanner addressBuilder){
 
         //* Asking for shipping street
         System.out.println(questions("What is your shipping street: "));
@@ -115,6 +87,43 @@ public class AddressBuilderApp {
         //*Storing shipping Zip
         String shippingZip = addressBuilder.nextLine();
 
-        return addressBuilder.nextLine();
+        //!Creating string builder
+        StringBuilder shippingInfo = new StringBuilder();
+
+        //*Appending shipping info
+        shippingInfo.append("""
+                Shipping Address:
+                """);
+        shippingInfo.append(shippingStreet);
+        shippingInfo.append(" \n");
+
+        shippingInfo.append(shippingCity);
+        shippingInfo.append(", ");
+
+        shippingInfo.append(shippingState);
+        shippingInfo.append(" ");
+
+        shippingInfo.append(shippingZip);
+
+        //?Printing out customer info
+        System.out.printf("""
+                
+                Your billing and shipping info:
+                
+                %s
+                
+                %s
+                
+                %s
+                """, fullName, billingInfo, shippingInfo);
+
     }
+
+
+    //!creating methods asking the questions
+    public static String questions(String customMessage){
+        return customMessage;
+    }
+
+
 }
