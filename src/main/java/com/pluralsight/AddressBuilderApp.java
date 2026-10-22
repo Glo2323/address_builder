@@ -16,7 +16,7 @@ public class AddressBuilderApp {
         System.out.println(questions("What is your full name: "));
 
         //*Storing the full name
-        String fullName = addressBuilder.nextLine();
+        String fullName = addressBuilder.nextLine().trim();
 
         //?Calling the billing and shipping info
         String billingInfo = billingQuestion();
@@ -34,6 +34,9 @@ public class AddressBuilderApp {
                 
                 %s
                 """, fullName, billingInfo, shippingInfo);
+
+
+        addressBuilder.close();
 
     }
 
@@ -97,25 +100,25 @@ public class AddressBuilderApp {
         System.out.println(questions("What is your shipping street: "));
 
         //*Storing the shipping Street
-        String shippingStreet = addressBuilder.nextLine();
+        String shippingStreet = addressBuilder.nextLine().trim();
 
         //*Asking for the shipping city
         System.out.println(questions("What is your shipping city: "));
 
         //*Storing the shipping city
-        String shippingCity = addressBuilder.nextLine();
+        String shippingCity = addressBuilder.nextLine().trim();
 
         //*Asking the shipping state
         System.out.println(questions("What is your shipping state: "));
 
         //*Storing the shipping state
-        String shippingState = addressBuilder.nextLine();
+        String shippingState = addressBuilder.nextLine().trim();
 
         //*Asking shipping Zip
         System.out.println(questions("What is your shipping zip: "));
 
         //*Storing shipping Zip
-        String shippingZip = addressBuilder.nextLine();
+        String shippingZip = addressBuilder.nextLine().trim();
 
         //!Creating string builder
         StringBuilder shippingInfo = new StringBuilder();
